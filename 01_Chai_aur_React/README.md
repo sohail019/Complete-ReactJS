@@ -1,5 +1,5 @@
-# Complete-ReactJS
-Welcome to the Complete ReactJS Repository! This repository is designed to be a comprehensive resource for learning and mastering ReactJS. Whether you're a beginner or an experienced developer, you'll find valuable content to enhance your ReactJS skills.
+# Chai aur React
+Welcome to Chai aur React! This repository offers a thorough guide to learning and mastering ReactJS by building real-world projects. Whether you're just starting out or looking to deepen your knowledge, you'll find a range of practical examples and projects to help you develop and refine your ReactJS skills.
 
 ## 🛠 Skills
 ReactJS, JavaScript, HTML, CSS...
@@ -35,7 +35,7 @@ To get started with ReactJS, follow these steps:
 
 ## Special Thanks
 
-We would like to extend our heartfelt thanks to the creators of the amazing resources that have significantly contributed to this repository:
+I would like to thank Hitesh Sir for the amazing playlist on YouTube, the free resources, and the real-world projects that have greatly contributed to this repository.
 
 - **Hitesh Choudhary** for the [Chai aur React](https://www.youtube.com/playlist?list=PLu71SKxNbfoDqgPchmvIsL4hTnJIrtige). This playlist offers an engaging and thorough exploration of React concepts with Projects.
 
