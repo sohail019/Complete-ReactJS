@@ -6,7 +6,7 @@ ReactJS, JavaScript, HTML, CSS...
 
 ## Table of Contents
 
-- [x] [01 - Chai aur React]()
+- [x] [01 - React Installation ]()
 
 ## Introduction
 
@@ -30,7 +30,7 @@ To get started with ReactJS, follow these steps:
 4. **Explore the Repository**: Clone this repository to your local machine and explore the content
    ```bash
    git clone https://github.com/sohail019/Complete-ReactJS.git
-    cd Complete-ReactJS
+    cd Complete-ReactJS/01_Chai_aur_React
     ```
 
 ## Special Thanks
