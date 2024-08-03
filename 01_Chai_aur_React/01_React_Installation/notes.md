@@ -4,6 +4,14 @@
 - React is a popular JavaScript library for building user interface, especially for single-page applications (SPA) where we want to create interactive web applications quickly and efficiently.
 - It was developed by Facebook and is maintained by large community.
 
+## History of ReactJS
+- React began as an internal tool for dynamic Facebook components.
+- Created in **2011** but remained private initially.
+- React.js was open-sourced by **Jordan Walke** and **Tom Occhino** at *JSConfUS 2013*
+- Released with the belief that its success at Facebook could benefit others.
+- Initially faced criticism for combining JS and HTML in a single file.
+- It slowly gained attraction when Khan Academy adopted. 
+
 ## Why use React?
 
 **1. Component Based Architecture:**  \
