@@ -158,3 +158,7 @@ root2.render(div)
 ```
 
 - **Purpose:** This renders the previously created `div` element (which contains all the nested elements) into the DOM at the specified root container.
+
+
+## Output
+![Output of React Clone](./Output.jpg "Output of React Clone")
