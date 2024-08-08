@@ -22,9 +22,21 @@ const NetflixSeries = () => {
     return "RomCom"
   }
 
+  const age = 16 // underage, not available
+  //? const age = 18 // watchnow
+
+
+  // Solution 3
+  let canWatch = "Not Avaiable"
+  if(age>= 18) canWatch = "Watch Now"
+
+  // Solution 4
+  const canWatch1 = () => {
+    if(age>= 18) return "Watch Now"
+    return "Not Available"
+  }
 
   return (
-
     <div>
     <div>
       <img
@@ -50,6 +62,17 @@ const NetflixSeries = () => {
     <p>Summary: {summary}</p>
 
     <p>Genre: {genre()}</p>
+
+    {/* Conditional Rendering */}
+
+    {/* Solution 2 - using ternary operator */}
+    {/* <button>{age >= 18 ? "Watch Now" : "Not Available"}</button> */}
+
+    {/* Solution 3 - for complex conditions */}
+    {/* <button>{canWatch}</button> */}
+
+    {/* Solution 4 - by using function */}
+    <button>{canWatch1()}</button>
   </div>
 )
 
