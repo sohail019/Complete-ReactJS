@@ -1,0 +1,17 @@
+body{
+    background-color: #212121;
+    color: white;
+}
+
+section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 3rem;
+}
+
+button img{
+    max-width: 40px;
+}
