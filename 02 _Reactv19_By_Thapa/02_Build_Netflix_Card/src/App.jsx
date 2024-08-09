@@ -1,5 +1,6 @@
-import React from 'react';
-import './App.css'
+import React from "react";
+import "./App.css";
+import "./components/Netflix.css"
 
 //? Default import
 // import NetflixSeries from './components/NetlixSeries';
@@ -8,17 +9,19 @@ import './App.css'
 import NetflixSeries, { Header, Footer } from "./components/NetlixSeries";
 
 const App = () => {
-
   return (
-    <> 
-    <Header />
-    <NetflixSeries />
-    <Footer />
+    <>
+      <Header/>
+      <section className="container">
+        <h1 className="card-heading">List of Best Netflix Series</h1>
+        <NetflixSeries />
+      </section>
+      <Footer />
     </>
   );
-}
+};
 
-export default App
+export default App;
 
 /*?
 // const NetflixSeries = () => {
@@ -84,8 +87,3 @@ export default App
 //     <button>{canWatch1()}</button>
 //   </div>
 // )
-
-// } 
-/*
-*/
-

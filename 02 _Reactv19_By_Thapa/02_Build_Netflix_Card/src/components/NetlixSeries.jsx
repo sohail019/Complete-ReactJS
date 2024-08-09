@@ -1,17 +1,19 @@
 import React from "react";
 import seriesData from "../api/seriesData.json";
-import {Card} from "./Card"
+import { Card } from "./Card";
+import NetflixLogo from "../assets/netflix.png";
 
 //? Named Export
 
-const NetflixSeries = () => {
+function NetflixSeries() {
   return (
-    <ul>
-      {seriesData.map((currentElement) => <Card key={currentElement.id} data={currentElement}/>
-      )}
+    <ul className="grid grid-three--cols">
+      {seriesData.map((currentElement) => (
+        <Card key={currentElement.id} data={currentElement} />
+      ))}
     </ul>
   );
-};
+}
 
 // Default Export
 export default NetflixSeries;
@@ -19,21 +21,9 @@ export default NetflixSeries;
 // Make Header
 export const Header = () => {
   return (
-    <div
-      style={{
-        backgroundColor: "#212121",
-        color: "white",
-        padding: "10px",
-        margin: "10px 0px",
-      }}
-    >
-      <ul
-        style={{
-          display: "flex",
-          gap: "10px",
-          listStyleType: "none",
-        }}
-      >
+    <div className="header">
+      <img src={NetflixLogo} alt="Netflix Logo" />
+      <ul>
         <li>Home</li>
         <li>About</li>
         <li>Watch Now</li>
@@ -44,5 +34,9 @@ export const Header = () => {
 
 // Make Footer
 export const Footer = () => {
-  return <p>@CopyRight 2024. Sohail. All Rights Reserved</p>;
+  return (
+    <p className="footer">
+      @CopyRight 2024. Sohail. All Rights Reserved
+    </p>
+  );
 };

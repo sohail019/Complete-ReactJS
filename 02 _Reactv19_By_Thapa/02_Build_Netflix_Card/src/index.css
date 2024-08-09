@@ -1,0 +1,52 @@
+/* ? This file contains global CSS Styles that apply to the entire application. It allows us to define styles that should be applied globally, affecting all components withing the app */
+
+/* Base Rule */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Times New Roman", Times, serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 900;
+}
+
+h1 {
+  font-size: 3.2rem;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Layout */
+.container {
+  max-width: 142rem;
+  margin: 0 auto;
+  padding: 3.6rem 1.4rem;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.grid-two-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-three--cols {
+  grid-template-columns: repeat(3, 1fr);
+}

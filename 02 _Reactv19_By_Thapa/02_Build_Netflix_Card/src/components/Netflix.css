@@ -1,0 +1,102 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #212121;
+    color: #fff;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+}
+
+.header img{
+    width: 10%;
+}
+
+.header ul{
+    display: flex;
+    gap: 10px;
+    font-size: 22px;
+}
+
+.header ul li{
+    cursor: pointer;
+}
+
+.header ul li:hover{
+    color: #E50914 ;
+}
+
+
+.card-heading{
+    margin-bottom: 3.2rem;
+    text-align: center;
+}
+
+.card{
+    background-color: #f8eeee;
+    max-width: 100%;
+    color: black;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba((0,0,0,0.1), green, blue, alpha);
+    padding: 20px;
+}
+
+.card-image{
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+
+.card-content{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card h2{
+    text-align: center;
+    background-color: #E50914;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px 10px 0 0 ;
+}
+
+.card p{
+    font-size: 18px;
+    line-height: 1.5;
+    /* margin-bottom: 10px; */
+}
+
+.card p::first-letter {
+  font-size: 20px;
+}
+
+
+.card p span {
+  font-weight: 900; 
+  color: #E50914;
+}
+
+.card button{
+    background-color: #E50914;
+    margin: 1rem 0;
+    padding: 0.5rem 2rem;
+    font-size: 1rem;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    border-radius: 2rem;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.card button:hover {
+  background-color: #c50914; /* Added hover effect */
+}
+
+.footer{
+    background-color: #E50914;
+    padding: 0.5rem;
+    color: #fff;
+    text-align: center;
+}

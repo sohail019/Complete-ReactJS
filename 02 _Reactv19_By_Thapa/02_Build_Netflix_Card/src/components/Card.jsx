@@ -1,16 +1,13 @@
+export const Card = ({ data }) => {
+  //? Destructure data from props
+  //    const {data} = props
 
-export const Card = ({data}) => {
-
-    //? Destructure data from props
-//    const {data} = props 
-
-// ? More destrcture datas from props.data
-const {name, img_url,  rating, description, cast, genre, watch_url} = data
+  // ? More destrcture datas from props.data
+  const { name, img_url, rating, description, cast, genre, watch_url } = data;
   return (
-    <li>
+    <li className="card">
       <div>
-        
-           {/* <img
+        {/* <img
           src={props.data.img_url}
           alt="The Nurse"
           width="40%"
@@ -48,20 +45,35 @@ const {name, img_url,  rating, description, cast, genre, watch_url} = data
       </a>
     </li> */}
 
-    {/* //! In Above, data is repeting in each time 
+        {/* //! In Above, data is repeting in each time 
     //* We can reduce that by using Destructing */}
-        <img src={img_url} alt="The Nurse" width="40%" height="40%" />
+        <img className="card-image" src={img_url} alt="The Nurse" />
       </div>
 
-      <h2>Name: {name}</h2>
-      <h3>Rating: {rating}</h3>
-      <p>Summary: {description}</p>
-      <p>Cast: {cast}</p>
-      <p>Genre: {genre}</p>
-      <a href={watch_url}>
-        <button>Watch Now</button>
-      </a>
+      <div className="card-content">
+        <h2>Name: {name}</h2>
+        <h3
+          style={{
+            margin: "1.2rem 0",
+            fontSize: "22px",
+          }}
+        >
+          Rating:{" "}
+          <span style={{ color: rating >= 7 ? "green" : "red" }}>{rating}</span>{" "}
+        </h3>
+        <p>
+          <span>Summary: </span> {description}
+        </p>
+        <p>
+          <span>Cast: </span> {cast}
+        </p>
+        <p>
+          <span>Genre: </span> {genre}
+        </p>
+        <a href={watch_url}>
+          <button>Watch Now</button>
+        </a>
+      </div>
     </li>
   );
 };
-
