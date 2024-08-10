@@ -8,12 +8,14 @@ import styles from "./components/Netflix.module.css"
 import NetflixSeries, { Header, Footer } from "./components/NetlixSeries";
 
 import { EventHandling } from "./components/EventHandling";
+import { EventProps } from "./components/EventProps";
 
 const App = () => {
   return (
-    <>
-      <Header/>
+    <>   
       <EventHandling />
+      <EventProps />
+      <Header/>
       <section className={styles.container}>
         <h1 className={styles["card-heading"]}>List of Best Netflix Series</h1>
         <NetflixSeries />
