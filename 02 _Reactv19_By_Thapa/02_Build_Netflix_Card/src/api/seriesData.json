@@ -79,5 +79,15 @@
     "cast": ["Saif Ali Khan", "Nawazuddin Siddiqui", "Radhika Apte"],
     "genre": ["Crime", "Thriller"],
     "watch_url": "https://www.netflix.com/in/title/80115328"
+  },
+  {
+    "name": "Heeramandi",
+    "id": "heeramandi-----------------------------------",
+    "img_url": "http://localhost:5173/images/hm.jpg",
+    "rating": "6.4",
+    "description": "Heeramandi: The Diamond Bazaar is a 2024 Indian Hindi-language period drama television series created and directed by Sanjay Leela Bhansali. ",
+    "cast": ["Manisha Koirala", "Sonakshi Sinha", "Aditi Rao Hydari"],
+    "genre": "Historical Drama",
+    "watch_url": "https://www.netflix.com/in/title/81122198"
   }
 ]
