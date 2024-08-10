@@ -92,18 +92,14 @@ export const Card = ({ data }) => {
         >
           Rating:{" "}
           {/* <span style={{ color: rating >= 7 ? "green" : "red" }}>{rating}</span>{" "} */}
-
           {/* //! By this we can't add multiple class name 👇  */}
           {/* <span className={(rating, rating >= 8.5 ? "super-hit" : "average")}> */}
-          
           {/* //* Below is solution for multiple class name 👇 */}
           {/* <span className={`rating ${rating >= 8.5 ? "super-hit" : "average"}`}> */}
           {/* //! but, it was not optimized so we can write the expression into variable and call it in template literals */}
-
           {/* //* Best Approach for multiple class usage with conditional styling */}
           {/* <span className={`rating ${ratingClass}`}> */}
           {/* //! but now we are moving to css modules */}
-
           {/* //* css modules */}
           <span className={`${styles.rating} ${ratingClass}`}>
             {rating}
