@@ -1,6 +1,5 @@
 import React from "react";
-import "./App.css";
-import "./components/Netflix.css"
+import styles from "./components/Netflix.module.css"
 
 //? Default import
 // import NetflixSeries from './components/NetlixSeries';
@@ -12,8 +11,8 @@ const App = () => {
   return (
     <>
       <Header/>
-      <section className="container">
-        <h1 className="card-heading">List of Best Netflix Series</h1>
+      <section className={styles.container}>
+        <h1 className={styles["card-heading"]}>List of Best Netflix Series</h1>
         <NetflixSeries />
       </section>
       <Footer />

@@ -9,7 +9,7 @@
     top: 0;
 }
 
-.header_img{
+.header img{
     width: 10%;
 }
 
@@ -27,11 +27,31 @@
     color: #E50914 ;
 }
 
-
 .card-heading{
     margin-bottom: 3.2rem;
     text-align: center;
 }
+
+.container {
+  max-width: 142rem;
+  margin: 0 auto;
+  padding: 3.6rem 1.4rem;
+}
+
+
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.grid-two-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-three-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 
 .card{
     background-color: #f8eeee;
@@ -42,13 +62,13 @@
     padding: 20px;
 }
 
-.card-image{
+.card_image{
     width: 100%;
     border-radius: 10px 10px 0 0;
 }
 
 
-.card-content{
+.card_content{
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -86,7 +106,7 @@
   background-color: #c50914; /* Added hover effect */
 }
 
-.super-hit{
+.super_hit{
     background-color: #7dcea0;
 }
 

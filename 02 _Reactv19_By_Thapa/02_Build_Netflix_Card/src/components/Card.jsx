@@ -1,11 +1,30 @@
+import styles from "../components/Netflix.module.css"
+
 export const Card = ({ data }) => {
   //? Destructure data from props
   //    const {data} = props
 
   // ? More destrcture datas from props.data
   const { name, img_url, rating, description, cast, genre, watch_url } = data;
+
+  const watchNowBtn = {
+    backgroundColor: `${rating >= 8.5 ? "#7dcea0" : "#f7dc6f"}`,
+    margin: "1rem 0",
+    padding: "0.5rem 2rem",
+    fontSize: "1rem",
+    cursor: "pointer",
+    border: "none",
+    borderRadius: "2rem",
+  };
+
+
+  //! const ratingClass = rating >= 8.5 ? "super-hit" : "average";
+  
+  //* in css modules
+  const ratingClass = rating >= 8.5 ? styles.super_hit : styles.average;
+
   return (
-    <li className="card">
+    <li className={styles.card}>
       <div>
         {/* <img
           src={props.data.img_url}
@@ -47,10 +66,10 @@ export const Card = ({ data }) => {
 
         {/* //! In Above, data is repeting in each time 
     //* We can reduce that by using Destructing */}
-        <img className="card-image" src={img_url} alt="The Nurse" />
+        <img className={styles.card_image} src={img_url} alt="The Nurse" />
       </div>
 
-      <div className="card-content">
+      <div className={styles.card_content}>
         <h2>Name: {name}</h2>
         <h3
           style={{
@@ -59,7 +78,23 @@ export const Card = ({ data }) => {
           }}
         >
           Rating:{" "}
-          <span style={{ color: rating >= 7 ? "green" : "red" }}>{rating}</span>{" "}
+          {/* <span style={{ color: rating >= 7 ? "green" : "red" }}>{rating}</span>{" "} */}
+
+          {/* //! By this we can't add multiple class name 👇  */}
+          {/* <span className={(rating, rating >= 8.5 ? "super-hit" : "average")}> */}
+          
+          {/* //* Below is solution for multiple class name 👇 */}
+          {/* <span className={`rating ${rating >= 8.5 ? "super-hit" : "average"}`}> */}
+          {/* //! but, it was not optimized so we can write the expression into variable and call it in template literals */}
+
+          {/* //* Best Approach for multiple class usage with conditional styling */}
+          {/* <span className={`rating ${ratingClass}`}> */}
+          {/* //! but now we are moving to css modules */}
+
+          {/* //* css modules */}
+          <span className={`${styles.rating} ${ratingClass}`}>
+            {rating}
+          </span>{" "}
         </h3>
         <p>
           <span>Summary: </span> {description}
@@ -71,7 +106,7 @@ export const Card = ({ data }) => {
           <span>Genre: </span> {genre}
         </p>
         <a href={watch_url}>
-          <button>Watch Now</button>
+          <button style={watchNowBtn}>Watch Now</button>
         </a>
       </div>
     </li>
