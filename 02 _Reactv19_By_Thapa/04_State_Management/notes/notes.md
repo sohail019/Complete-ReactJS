@@ -122,3 +122,16 @@ fast.
     - This persistance enables the user to interact with the component, and for component to reflect changes, without loosing the context or data.
 - **Consistency:** 
     - If React reset the state on every re-render, it would be impossible to build interactive apps, as every action would revert the state to it's initial value, causing unpredictable behavior and poor user experience.
+
+## Derived State in React
+- **Derived State** is any state that can be computed based on other state or props.
+- It is not stored directly in the component's state but is calculated when needed.
+- This approach helps avoid duplication and keeps that state simpler and more manageable.
+```javascript
+const userCount = users.length
+```
+
+### Benefits of Derived State:
+- **Avoid Redundancy:** By deriving values from existing state, you avoid storing redundant data.
+- **Consistency:**  Ensure that derived values are always in sync with the underlying state or props.
+- **Simplicity:** Reduces the complexity of State Management by minimizing the number of state variables.
