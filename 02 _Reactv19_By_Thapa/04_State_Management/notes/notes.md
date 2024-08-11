@@ -55,6 +55,3 @@ second one is a function to update the state.
     - States help you manage data effectively.
     - You can store data in the state and update it as needed.
     - This ensures that your application remains data-driven and responsive.
-
-
-
