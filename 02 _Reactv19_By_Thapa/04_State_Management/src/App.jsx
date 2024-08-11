@@ -1,6 +1,7 @@
 import './App.css'
 import {Counter} from "./components/Counter"
 import { DerivedState } from './components/DerivedState'
+import { ParentComponent } from './components/LiftTheStateUp'
 
 function App() {
 
@@ -11,6 +12,9 @@ function App() {
 
       <hr />
       <DerivedState/>
+
+      <hr />
+      <ParentComponent /> 
     </>
   )
 }
