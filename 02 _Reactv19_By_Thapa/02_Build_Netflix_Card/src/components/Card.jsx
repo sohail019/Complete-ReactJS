@@ -1,5 +1,5 @@
-import styles from "../components/Netflix.module.css"
-import  Styled  from "styled-components";
+import styles from "../components/Netflix.module.css";
+import Styled from "styled-components";
 
 export const Card = ({ data }) => {
   //? Destructure data from props
@@ -9,13 +9,13 @@ export const Card = ({ data }) => {
   const { name, img_url, rating, description, cast, genre, watch_url } = data;
 
   // const watchNowBtn = {
-    // backgroundColor: `${rating >= 8.5 ? "#7dcea0" : "#f7dc6f"}`,
-    // margin: "1rem 0",
-    // padding: "0.5rem 2rem",
-    // fontSize: "1rem",
-    // cursor: "pointer",
-    // border: "none",
-    // borderRadius: "2rem",
+  // backgroundColor: `${rating >= 8.5 ? "#7dcea0" : "#f7dc6f"}`,
+  // margin: "1rem 0",
+  // padding: "0.5rem 2rem",
+  // fontSize: "1rem",
+  // cursor: "pointer",
+  // border: "none",
+  // borderRadius: "2rem",
   // };
 
   //? Styled Component make watchnow button
@@ -30,9 +30,8 @@ export const Card = ({ data }) => {
     borderRadius: "2rem",
   });
 
-
   //! const ratingClass = rating >= 8.5 ? "super-hit" : "average";
-  
+
   //* in css modules
   const ratingClass = rating >= 8.5 ? styles.super_hit : styles.average;
 

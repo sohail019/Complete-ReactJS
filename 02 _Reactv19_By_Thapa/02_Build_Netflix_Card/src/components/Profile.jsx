@@ -59,8 +59,7 @@ function Profile() {
 export default Profile;
 
 function ProfileCard(props) {
-
-    const {name, age, greeting} = props
+  const { name, age, greeting } = props;
   return (
     <>
       <h2>Name: {name}</h2>
@@ -68,7 +67,7 @@ function ProfileCard(props) {
       <p>{greeting}</p>
       {/* //! Here, the problem comes as <div> cannot appear as a descendant of <p></p> */}
       {/* //* Solution is to use props.children */}
-      <div>{props.children}</div>  
+      <div>{props.children}</div>
     </>
   );
 }

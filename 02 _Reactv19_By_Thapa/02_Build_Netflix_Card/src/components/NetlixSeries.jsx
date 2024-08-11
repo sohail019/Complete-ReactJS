@@ -5,7 +5,6 @@ import NetflixLogo from "../assets/netflix.png";
 // import "../index.css";
 import styles from "../components/Netflix.module.css";
 
-
 //? Named Export
 
 function NetflixSeries() {
