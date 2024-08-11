@@ -1,5 +1,8 @@
 import { useState } from "react";
 import "./ToggleSwitch.css"
+import { FiSun } from "react-icons/fi";
+import { FiMoon } from "react-icons/fi";
+
 
 export const ToggleSwitch = () => {
 
@@ -32,7 +35,22 @@ export const ToggleSwitch = () => {
           onClick={handleToggleSwitch}
         >
           <div className={`switch ${checkToggle}`}>
-            <span className="switch-state">{checkToggle}</span>
+            <span className="switch-state">
+              {checkToggle}
+              {/* {toggleValue ? <FiMoon /> : <FiSun />} */}
+            </span>
+          </div>
+        </div>
+        <div
+          className="toggle-switch"
+          style={{ toggleBgColor }}
+          onClick={handleToggleSwitch}
+        >
+          <div className={`switch ${checkToggle}`}>
+            <span className="switch-state">
+              {/* {checkToggle} */}
+              {toggleValue ? <FiMoon /> : <FiSun />}
+            </span>
           </div>
         </div>
         <h3 className={mode === "Light Mode" ? "value-light" : "value-dark"}>
