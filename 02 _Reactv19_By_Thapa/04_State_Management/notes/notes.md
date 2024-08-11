@@ -55,3 +55,70 @@ second one is a function to update the state.
     - States help you manage data effectively.
     - You can store data in the state and update it as needed.
     - This ensures that your application remains data-driven and responsive.
+
+## Type of State
+- **Local State:**
+    - Local state is a state that is specific to a single component or object
+    - It is stored in the component's memory and is not shared with other components
+- **Global State:**
+    - Global state is a state that is shared across multiple components or objects
+    - It is stored in a centralized location, such as a Redux store or a context API
+- **Server State:**
+    - Server state is a state that is stored on the server and is retrieved by the client
+    - It is used to store data that is not sensitive or critical, such as user preferences or settings
+- **Session State:**
+    - Session state is a state that is stored on the client-side and is specific to a user's
+session
+    - It is used to store data that is specific to a user's session, such as login information
+- **Persistent State:**
+    - Persistent state is a state that is stored on the server-side and is retrieved by the client
+    - It is used to store data that is critical or sensitive, such as user credentials or financial information
+
+## How State Works?
+
+### Using useState in Functional Components
+
+- **Initialization:**
+    - You call useState with the initial state value.
+    - It returns an array with two elements: the current value and a function to update that state.
+
+- **Updating State:**
+    - You call the update function with a new value.
+    - The state is updated, and the component re-renders with the new state.
+
+- **Preservation of State:**
+    - The state is preserved between renders.
+    - When the component re-renders, it uses the previous state value.
+
+### What is React Reconciliation?
+
+- React reconciliation is the process of comparing the virtual DOM with the actual DOM and updating the DOM.
+- React reconciliation is an optimization technique that makes React efficient and fast.
+- React reconciliation is done by React's Virtual DOM, which is a lightweight in-memory representation of the actual DOM.
+- When the state or props of a component change, React creates a new virtual DOM representation of the
+component.
+- React then compares the new virtual DOM with the previous virtual DOM and updates the actual DOM only
+where necessary.
+- This process is called reconciliation, and it is done by React's reconciliation algorithm.
+
+### The Diffing Algorithm
+- The diffing algorithm is a key part of React reconciliation.
+- It compares the virtual DOM with the actual DOM and updates the DOM where necessary.
+- The diffing algorithm is based on a tree-like structure, where each node represents a component or
+element.
+- The algorithm starts at the root of the tree and recursively traverses the tree, comparing nodes and
+updating the DOM where necessary.
+- The diffing algorithm is optimized for performance and is a key part of what makes React efficient and
+fast.
+
+
+## Why the state value does not reset to it's initial value on re-render ?
+- Because, React preserves the state between renders.
+- This is one of the core principles of React's state management and is crucial for creating dynamic, interactive user interfaces.
+
+## Why does not State Reset?
+- **Purpose:**
+    - The primary reason is to allow the component to maintain it's current "state" or condition between renders.
+    - This persistance enables the user to interact with the component, and for component to reflect changes, without loosing the context or data.
+- **Consistency:** 
+    - If React reset the state on every re-render, it would be impossible to build interactive apps, as every action would revert the state to it's initial value, causing unpredictable behavior and poor user experience.

@@ -1,5 +1,6 @@
 import './App.css'
 import {Counter} from "./components/Counter"
+import { DerivedState } from './components/DerivedState'
 
 function App() {
 
@@ -7,6 +8,9 @@ function App() {
     <>
       <Counter />
       <SiblingComponent />
+
+      <hr />
+      <DerivedState/>
     </>
   )
 }
