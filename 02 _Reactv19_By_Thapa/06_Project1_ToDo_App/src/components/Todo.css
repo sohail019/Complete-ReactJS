@@ -41,7 +41,7 @@ section h1 {
 }
 
 .date-time {
-  font-size: 2.4rem;
+  font-size: 1.5rem;
   text-align: center;
 }
 
@@ -178,16 +178,12 @@ margin: 0 auto;
 }
 
 .clear-btn {
+  padding: 15px;
+  font-size: 1.3rem;
+  border: none;
+  border-radius: 20px;
   background-color: #e74c3c;
-  font-size: 1.6rem;
-  padding: 1rem 2.2rem;
-  border-radius: 0.3rem;
-  -webkit-border-radius: 0.3rem;
-  -moz-border-radius: 0.3rem;
-  -ms-border-radius: 0.3rem;
-  -o-border-radius: 0.3rem;
-}
-
-.clear-btn:hover {
-  background-color: #8d1407;
+  color: white;
+  cursor: pointer;
+  transition: box-shadow 200ms ease, background-color 200ms ease-in-out;
 }
