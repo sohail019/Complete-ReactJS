@@ -5,34 +5,55 @@ import { TodoForm } from "./TodoForm";
 import { TodoList } from "./TodoList";
 
 export const Todo = () => {
+  //* State for Task List
+  const [task, setTask] = useState([]);
 
-    //* State for Task List
-    const [task, setTask] = useState([])
+  const handleFormSubmit = (inputValue) => {
+    const { id, content, checked } = inputValue;
 
-    const handleFormSubmit = (inputValue) => {
+    // ? to check if user enter empty value it should not add in a list
+    if (!content) return;
 
-        // ? to check if user enter empty value it should not add in a list
-        if(!inputValue) return
+    // ? to prevent duplicate value and the input field should be empty again
+    // if(task.includes(inputValue)) return
 
-        // ? to prevent duplicate value and the input field should be empty again
-        if(task.includes(inputValue)) return
+    const ifToDoContentMatched = task.find(
+      (currTask) => currTask.content === content
+    );
+    if (ifToDoContentMatched) return;
 
-        //* Add task to state by using spread operator
-        setTask((prevTask) => [...prevTask, inputValue])
-    }
+    //* Add task to state by using spread operator
+    setTask((prevTask) => [...prevTask, { id, content, checked }]);
+  };
 
-    //? Implement logic on how to delete item from toDo
+  //? Implement logic on how to delete item from toDo
 
-    const handleDelete = (value) => {
-      // console.log(task)
-      // console.log(value) 
-      const updatedTask = task.filter( (currTask) => currTask !== value)
-      setTask(updatedTask)
-    }
+  const handleDelete = (value) => {
+    // console.log(task)
+    // console.log(value)
+    const updatedTask = task.filter((currTask) => currTask.content !== value);
+    setTask(updatedTask);
+  };
 
-    const handleClearBtn = () => {
-      setTask([])
-    }
+  //? Implement logic on how to check/uncheck item from todo
+
+  const handleCheck = (content) => {
+     
+    const updatedTask = task.map( (currTask) => {
+      if(currTask.content === content) {
+        return {...currTask, checked: !currTask.checked}
+      } else{
+        return currTask
+      }
+    })
+
+    setTask(updatedTask)
+  }
+
+  // ? Implement Logic on how to clear all the items
+  const handleClearBtn = () => {
+    setTask([]);
+  };
 
   return (
     <>
@@ -41,19 +62,27 @@ export const Todo = () => {
           <h1>ToDo App</h1>
           <DateTime />
         </header>
-        
-        <TodoForm onTodoAdd={handleFormSubmit}/>
+
+        <TodoForm onTodoAdd={handleFormSubmit} />
 
         <section className="myUnOrdList">
           <ul>
-            {task.map((currTask, index) => {
+            {task.map((currTask) => {
               return (
-                <TodoList key={index} data={currTask} onHandleDelete={handleDelete}/>
+                <TodoList
+                  key={currTask.id}
+                  data={currTask.content}
+                  checked={currTask.checked}
+                  onHandleDelete={handleDelete}
+                  onHandleChecked={handleCheck}
+                />
               );
             })}
           </ul>
-        </section> 
-          <button onClick={handleClearBtn} className="clear-btn">Clear All</button>
+        </section>
+        <button onClick={handleClearBtn} className="clear-btn">
+          Clear All
+        </button>
       </section>
     </>
   );

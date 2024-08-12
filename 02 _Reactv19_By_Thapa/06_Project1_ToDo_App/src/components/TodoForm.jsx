@@ -5,7 +5,7 @@ export const TodoForm = ({ onTodoAdd }) => {
   const [inputValue, setInputValue] = useState("");
 
   const handleInputChange = (value) => {
-    setInputValue(value);
+    setInputValue({id: value, content: value, checked: false});
   };
 
   const handleFormSubmit = (event) => {
@@ -15,7 +15,7 @@ export const TodoForm = ({ onTodoAdd }) => {
     onTodoAdd(inputValue);
 
     //? validation check for when user add task, the input field should be empty again
-    setInputValue("");
+    setInputValue({ id: "", content: "", checked: false });
   };
 
   return (
@@ -29,7 +29,7 @@ export const TodoForm = ({ onTodoAdd }) => {
               className="todo-input"
               autoComplete="off"
               onChange={(e) => handleInputChange(e.target.value)}
-              value={inputValue}
+              value={inputValue.content}
             />
           </div>
           <div>
