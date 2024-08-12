@@ -3,10 +3,12 @@ import { useState } from "react";
 import { DateTime } from "./DateTime";
 import { TodoForm } from "./TodoForm";
 import { TodoList } from "./TodoList";
+import { getLocalStorageData, setLocalStorageData } from "./TodoLocalStorage";
+
 
 export const Todo = () => {
   //* State for Task List
-  const [task, setTask] = useState([]);
+  const [task, setTask] = useState(getLocalStorageData);
 
   const handleFormSubmit = (inputValue) => {
     const { id, content, checked } = inputValue;
@@ -25,6 +27,10 @@ export const Todo = () => {
     //* Add task to state by using spread operator
     setTask((prevTask) => [...prevTask, { id, content, checked }]);
   };
+
+
+  //todo: Add data to local storage
+  setLocalStorageData(task)
 
   //? Implement logic on how to delete item from toDo
 
