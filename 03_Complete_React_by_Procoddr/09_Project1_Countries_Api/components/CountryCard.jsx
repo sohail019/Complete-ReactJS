@@ -1,0 +1,32 @@
+import React from "react";
+
+export const CountryCard = ({name, population, flag, capital, region, continent, subregion, timezones}) => {
+  return (
+    <>
+      <a className="country-card">
+        <img src={flag} />
+        <div className="card-text">
+          <h3 className="card-title">{name}</h3>
+          <p>
+            <b>Population: {population}</b>
+          </p>
+          <p>
+            <b>Region: {region} </b>
+          </p>
+          <p>
+            <b>Sub-region: {subregion}</b>
+          </p>
+          <p>
+            <b>Capital: {capital}</b>
+          </p>
+          <p>
+            <b>Continent: {continent}</b>
+          </p>
+          <p>
+            <b>TimeZone: {timezones}</b>
+          </p>
+        </div>
+      </a>
+    </>
+  );
+};
