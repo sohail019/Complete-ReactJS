@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { CountryCard } from "./CountryCard";
 
-export const CountriesList = () => {
+export const CountriesList = ({query}) => {
   const [countries, setCountries] = useState([]);
+
 
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
@@ -15,26 +16,28 @@ export const CountriesList = () => {
       });
   }, []);
 
+  const filteredCountries = countries.filter((country) => country.name.common.toLowerCase().includes(query))
+  // console.log(filteredCountries.map((country) => country.name.common))
+
   return (
-    <div className="countries-container">
-      {/* <CountryCard /> */}
-      {countries.map((country, index) => {
-      console.log(country.subregion)
-        
-        return (
-          <CountryCard
-            key={index}
-            name={country.name.common}
-            population={country.population}
-            flag={country.flags.png}
-            region={country.region}
-            subregion={country.subregion}
-            capital={country.capital}
-            continent={country.continents}
-            timezones={country.timezones}
-          />
-        );
-      })}
-    </div>
+    <>
+      <div className="countries-container">
+        {filteredCountries.map((country, index) => {
+          return (
+            <CountryCard
+              key={index}
+              name={country.name.common}
+              population={country.population}
+              flag={country.flags.png}
+              region={country.region}
+              subregion={country.subregion}
+              capital={country.capital}
+              continent={country.continents}
+              timezones={country.timezones}
+            />
+          );
+        })}
+      </div>
+    </>
   );
 };
