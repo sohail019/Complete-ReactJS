@@ -10,7 +10,6 @@ export const CountryCard = ({
   region,
   continent,
   subregion,
-  timezones,
   data,
 }) => {
   return (
@@ -39,9 +38,6 @@ export const CountryCard = ({
           </p>
           <p>
             <b>Continent: {continent}</b>
-          </p>
-          <p>
-            <b>TimeZone: {timezones}</b>
           </p>
         </div>
       </Link>
