@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Link, useParams } from "react-router-dom"
+import { Link, useLocation, useParams } from "react-router-dom"
 import "./CountryDetail.css"
 
 export const CountryDetail = () => {
@@ -12,45 +12,63 @@ export const CountryDetail = () => {
   
   //todo: dynamic routing for country name url
   const params = useParams()
+
+  //todo: pass data as props
+  const { state } = useLocation();
   // console.log(params)
   const countryName = params.country
+
+
+  function updateCountryData({data}){
+    setCountry({
+      name: data.name.common,
+      nativeName: Object.values(data.name.nativeName)[0].common,
+      population: data.population,
+      region: data.region,
+      subregion: data.subregion,
+      capital: data.capital,
+      tld: data.tld,
+      currencies: Object.values(data.currencies)
+        .map((currency) => currency.name)
+        .join(", "),
+      languages: Object.values(data.languages).join(", "),
+      flag: data.flags.png,
+      drivingSide: Object.values(data.car)[1],
+      timezones: data.timezones.join(", "),
+      borders: [],
+    });
+
+    if(!data.borders){
+      data.borders = []
+    }
+
+    Promise.all(
+      data.borders.map((border) => {
+        return fetch(`https://restcountries.com/v3.1/alpha/${border}`)
+          .then((res) => res.json())
+          .then(([borderCountry]) => borderCountry.name.common);
+      })
+    ).then((borders) => {
+      setTimeout(() => {
+        setCountry((prevState) => ({ ...prevState, borders }));
+      });
+    });
+  }
 
   //todo: fetch country data
 
   useEffect(() => {
 
+    if(state){
+      updateCountryData(state)
+      return
+    }
+
     fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
       .then((res) => res.json())
       .then(([data]) => {
         // console.log(data);
-        setCountry({
-          name: data.name.common,
-          nativeName: Object.values(data.name.nativeName)[0].common,
-          population: data.population,
-          region: data.region,
-          subregion: data.subregion,
-          capital: data.capital,
-          tld: data.tld,
-          currencies: Object.values(data.currencies).map((currency) => currency.name).join(', '),
-          languages: Object.values(data.languages).join(", "),
-          flag: data.flags.png,
-          drivingSide: Object.values(data.car)[1],
-          timezones: data.timezones.join(", "),
-          borders: []
-        });
-
-        if (!data.borders) {
-          data.borders = [];
-        }
-
-        Promise.all(data.borders.map((border) => {
-          return fetch(`https://restcountries.com/v3.1/alpha/${border}`)
-            .then((res) => res.json())
-            .then(([borderCountry]) => borderCountry.name.common)
-        }))
-        .then((borders) => {
-          setCountry((prevState) => ({...prevState, borders}))
-        })
+        updateCountryData(data)
       })
       .catch((err) => setNotFound(true))
   }, [countryName])

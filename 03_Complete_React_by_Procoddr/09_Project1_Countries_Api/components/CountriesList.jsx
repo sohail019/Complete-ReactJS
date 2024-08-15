@@ -39,6 +39,7 @@ export const CountriesList = ({query}) => {
               capital={country.capital}
               continent={country.continents}
               timezones={country.timezones}
+              data={country}
             />
           );
         })}
