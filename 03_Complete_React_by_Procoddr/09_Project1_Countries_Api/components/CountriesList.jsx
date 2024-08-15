@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { CountriesListShimmer } from "./CountriesListShimmer";
 import { CountryCard } from "./CountryCard";
 
 export const CountriesList = ({query}) => {
@@ -19,8 +20,12 @@ export const CountriesList = ({query}) => {
   const filteredCountries = countries.filter((country) => country.name.common.toLowerCase().includes(query))
   // console.log(filteredCountries.map((country) => country.name.common))
 
+  if(!countries.length) {
+    return <CountriesListShimmer />;
+  }
+
   return (
-    <>
+    <> 
       <div className="countries-container">
         {filteredCountries.map((country, index) => {
           return (

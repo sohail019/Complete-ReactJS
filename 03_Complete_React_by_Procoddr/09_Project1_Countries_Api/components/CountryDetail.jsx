@@ -35,7 +35,7 @@ export const CountryDetail = () => {
           languages: Object.values(data.languages).join(", "),
           flag: data.flags.png,
           drivingSide: Object.values(data.car)[1],
-          timezones: data.timezones,
+          timezones: data.timezones.join(", "),
           borders: []
         });
 
@@ -49,20 +49,19 @@ export const CountryDetail = () => {
             .then(([borderCountry]) => borderCountry.name.common)
         }))
         .then((borders) => {
-          console.log("hiii")
           setCountry((prevState) => ({...prevState, borders}))
         })
       })
       .catch((err) => setNotFound(true))
-  }, [])
-
-  // countries.map((country) => console.log(country))
+  }, [countryName])
 
   if(notFound) {
     return <h1 style={{textAlign: "center", marginTop: "10rem"}}>Country Not Found</h1>
   }
+
+
   return country === null ? (
-    "Loading..."
+    <h1>Loading...</h1>
   ) : (
     <main>
       <div className="country-details-container">
