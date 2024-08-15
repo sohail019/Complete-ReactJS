@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import "./CountryDetail.css"
 
 export const CountryDetail = () => {
@@ -36,7 +36,22 @@ export const CountryDetail = () => {
           flag: data.flags.png,
           drivingSide: Object.values(data.car)[1],
           timezones: data.timezones,
+          borders: []
         });
+
+        if (!data.borders) {
+          data.borders = [];
+        }
+
+        Promise.all(data.borders.map((border) => {
+          return fetch(`https://restcountries.com/v3.1/alpha/${border}`)
+            .then((res) => res.json())
+            .then(([borderCountry]) => borderCountry.name.common)
+        }))
+        .then((borders) => {
+          console.log("hiii")
+          setCountry((prevState) => ({...prevState, borders}))
+        })
       })
       .catch((err) => setNotFound(true))
   }, [])
@@ -46,14 +61,16 @@ export const CountryDetail = () => {
   if(notFound) {
     return <h1 style={{textAlign: "center", marginTop: "10rem"}}>Country Not Found</h1>
   }
-  return country === null  ? 'Loading...' : (
+  return country === null ? (
+    "Loading..."
+  ) : (
     <main>
       <div className="country-details-container">
         <span className="back-button" onClick={() => history.back()}>
           <i className="fa-solid fa-arrow-left"></i>&nbsp; Back
         </span>
         <div className="country-details">
-          <img src={country.flag} alt={country.data + 'Flag'} />
+          <img src={country.flag} alt={country.data + "Flag"} />
           <div className="details-text-container">
             <h1>{country.name}</h1>
             <div className="details-text">
@@ -62,9 +79,7 @@ export const CountryDetail = () => {
                 <span className="native-name"></span>
               </p>
               <p>
-                <b>
-                  Population: {country.population}
-                </b>
+                <b>Population: {country.population}</b>
                 <span className="population"></span>
               </p>
               <p>
@@ -100,9 +115,16 @@ export const CountryDetail = () => {
                 <span className="driving-side"></span>
               </p>
             </div>
-            <div className="border-countries">
-              <b>Border Countries: </b>&nbsp;
-            </div>
+            {country.borders && country.borders.length > 0 && (
+              <div className="border-countries">
+                <b>Border Countries: </b>&nbsp;
+                {country.borders.map((border) => (
+                  <Link key={border} to={`/${border}`}>
+                    {border}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>
