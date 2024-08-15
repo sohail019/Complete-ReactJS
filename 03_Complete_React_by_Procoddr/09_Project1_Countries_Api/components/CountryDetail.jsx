@@ -1,13 +1,19 @@
 import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
 import "./CountryDetail.css"
 
 export const CountryDetail = () => {
 
   const [country, setCountry] = useState({})
+  const [notFound, setNotFound] = useState(false)
 
   //todo: fetch country name parameter from URL
-  const countryName = new URLSearchParams(location.search).get('name')
-  // console.log(countryName)
+  // const countryName = new URLSearchParams(location.search).get('name')
+  
+  //todo: dynamic routing for country name url
+  const params = useParams()
+  // console.log(params)
+  const countryName = params.country
 
   //todo: fetch country data
 
@@ -16,7 +22,7 @@ export const CountryDetail = () => {
     fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
       .then((res) => res.json())
       .then(([data]) => {
-        console.log(data);
+        // console.log(data);
         setCountry({
           name: data.name.common,
           nativeName: Object.values(data.name.nativeName)[0].common,
@@ -32,14 +38,18 @@ export const CountryDetail = () => {
           timezones: data.timezones,
         });
       })
+      .catch((err) => setNotFound(true))
   }, [])
 
   // countries.map((country) => console.log(country))
 
-  return (
+  if(notFound) {
+    return <h1 style={{textAlign: "center", marginTop: "10rem"}}>Country Not Found</h1>
+  }
+  return country === null  ? 'Loading...' : (
     <main>
       <div className="country-details-container">
-        <span className="back-button" href="">
+        <span className="back-button" onClick={() => history.back()}>
           <i className="fa-solid fa-arrow-left"></i>&nbsp; Back
         </span>
         <div className="country-details">
