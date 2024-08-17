@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import { useTheme } from "../hooks/useTheme";
 import { useWindowSize } from "../hooks/useWindowSize";
+import { CountriesListShimmer } from "./CountriesListShimmer";
 import "./CountryDetail.css";
 
 export const CountryDetail = () => {
@@ -29,17 +30,17 @@ export const CountryDetail = () => {
 
   function updateCountryData(data) {
     setCountry({
-      name: data.name.common,
-      nativeName: Object.values(data.name.nativeName)[0].common,
+      name: data.name.common || data.name,
+      nativeName: Object.values(data.name.nativeName || {})[0]?.common,
       population: data.population,
       region: data.region,
       subregion: data.subregion,
       capital: data.capital,
       tld: data.tld,
-      currencies: Object.values(data.currencies)
+      currencies: Object.values(data.currencies || {}) 
         .map((currency) => currency.name)
         .join(", "),
-      languages: Object.values(data.languages).join(", "),
+      languages: Object.values(data.languages || {}).join(", "),
       flag: data.flags.png,
       drivingSide: Object.values(data.car)[1],
       timezones: data.timezones.join(", "),
@@ -97,13 +98,16 @@ export const CountryDetail = () => {
         <span className="back-button" onClick={() => history.back()}>
           <i className="fa-solid fa-arrow-left"></i>&nbsp; Back
         </span>
+        {country === null ? (
+          <CountryDetailShimmer />
+        ) : (
         <div className="country-details">
           <img src={country.flag} alt={country.data + "Flag"} />
           <div className="details-text-container">
             <h1>{country.name}</h1>
             <div className="details-text">
               <p>
-                <b>Native Name: {country.nativeName}</b>
+                <b>Native Name: {country.nativeName || country.name}</b>
                 <span className="native-name"></span>
               </p>
               <p>
@@ -119,7 +123,7 @@ export const CountryDetail = () => {
                 <span className="sub-region"></span>
               </p>
               <p>
-                <b>Capital: {country.capital}</b>
+                <b>Capital: {country.capital?.join(', ')}</b>
                 <span className="capital"></span>
               </p>
               <p>
@@ -155,6 +159,7 @@ export const CountryDetail = () => {
             )}
           </div>
         </div>
+        )}
       </div>
     </main>
   );

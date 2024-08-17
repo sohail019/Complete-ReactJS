@@ -4,8 +4,7 @@ import { CountryCard } from "./CountryCard";
 
 export const CountriesList = ({query}) => {
   const [countries, setCountries] = useState([]);
-
-
+  
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
       .then((res) => res.json())
@@ -17,7 +16,7 @@ export const CountriesList = ({query}) => {
       });
   }, []);
 
-  const filteredCountries = countries.filter((country) => country.name.common.toLowerCase().includes(query))
+  const filteredCountries = countries.filter((country) => country.name.common.toLowerCase().includes(query) || country.region.toLowerCase().includes(query))
   // console.log(filteredCountries.map((country) => country.name.common))
 
   if(!countries.length) {
@@ -35,7 +34,7 @@ export const CountriesList = ({query}) => {
               population={country.population}
               flag={country.flags.png}
               region={country.region}
-              subregion={country.subregion}
+              subregion={country?.subregion}
               capital={country.capital}
               continent={country.continents}
               countryList={filteredCountries}

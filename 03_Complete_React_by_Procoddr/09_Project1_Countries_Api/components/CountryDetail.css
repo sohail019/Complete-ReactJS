@@ -9,6 +9,7 @@
     box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
     cursor: pointer;
+    background-color: var(--elements-color);
 }
 
 .country-details {
@@ -42,6 +43,7 @@
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 8px;
+    
 }
 
 .border-countries a {
@@ -49,6 +51,7 @@
     box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
     font-size: 14px;
+     background-color: var(--elements-color);
 }
 
 @media(max-width: 940px) {

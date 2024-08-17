@@ -59,16 +59,14 @@ a {
 .countries-container {
   max-width: 1200px;
   margin-top: 16px;
-  display: flex;
-  gap: 64px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 32px;
   margin-inline: auto;
-  justify-content: space-between;
 }
 
 .country-card {
   display: inline-block;
-  width: 250px;
   border-radius: 8px;
   overflow: hidden;
   padding-bottom: 24px;
@@ -98,7 +96,6 @@ a {
 .country-card img {
   width: 100%;
   height: 200px;
-  border-bottom: 2px solid grey;
 }
 
 .search-filter-container {

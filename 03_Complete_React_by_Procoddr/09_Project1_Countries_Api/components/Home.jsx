@@ -24,7 +24,7 @@ export const Home = () => {
       {windowSize}
       <div className="search-filter-container">
         <Searchbar setQuery={setQuery} />
-        <FilterMenu />
+        <FilterMenu setQuery={setQuery} />
       </div>
 
       <CountriesList query={query} />
