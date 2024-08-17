@@ -38,6 +38,7 @@ export const CountriesList = ({query}) => {
               subregion={country.subregion}
               capital={country.capital}
               continent={country.continents}
+              countryList={filteredCountries}
               data={country}
             />
           );

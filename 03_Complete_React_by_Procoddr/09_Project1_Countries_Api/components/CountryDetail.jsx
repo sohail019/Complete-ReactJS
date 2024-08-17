@@ -1,27 +1,30 @@
-import { useEffect, useState } from "react"
-import { Link, useLocation, useOutletContext, useParams } from "react-router-dom"
-import "./CountryDetail.css"
+import { useContext, useEffect, useState } from "react";
+import {
+  Link,
+  useLocation,
+  useParams,
+} from "react-router-dom";
+import { ThemeContext } from "../contexts/ThemeContext";
+import "./CountryDetail.css";
 
 export const CountryDetail = () => {
+  const [country, setCountry] = useState({});
+  const [notFound, setNotFound] = useState(false);
 
-  const [country, setCountry] = useState({})
-  const [notFound, setNotFound] = useState(false)
-
-  const [isDark] = useOutletContext()
+  const [isDark] = useContext(ThemeContext)
 
   //todo: fetch country name parameter from URL
   // const countryName = new URLSearchParams(location.search).get('name')
-  
+
   //todo: dynamic routing for country name url
-  const params = useParams()
+  const params = useParams();
 
   //todo: pass data as props
   const { state } = useLocation();
   // console.log(params)
-  const countryName = params.country
+  const countryName = params.country;
 
-
-  function updateCountryData({data}){
+  function updateCountryData(data) {
     setCountry({
       name: data.name.common,
       nativeName: Object.values(data.name.nativeName)[0].common,
@@ -40,8 +43,8 @@ export const CountryDetail = () => {
       borders: [],
     });
 
-    if(!data.borders){
-      data.borders = []
+    if (!data.borders) {
+      data.borders = [];
     }
 
     Promise.all(
@@ -60,25 +63,27 @@ export const CountryDetail = () => {
   //todo: fetch country data
 
   useEffect(() => {
-
-    if(state){
-      updateCountryData(state)
-      return
+    if (state) {
+      updateCountryData(state.data);
+      return;
     }
 
     fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
       .then((res) => res.json())
       .then(([data]) => {
         // console.log(data);
-        updateCountryData(data)
+        updateCountryData(data);
       })
-      .catch((err) => setNotFound(true))
-  }, [countryName])
+      .catch((err) => setNotFound(true));
+  }, [countryName]);
 
-  if(notFound) {
-    return <h1 style={{textAlign: "center", marginTop: "10rem"}}>Country Not Found</h1>
+  if (notFound) {
+    return (
+      <h1 style={{ textAlign: "center", marginTop: "10rem" }}>
+        Country Not Found
+      </h1>
+    );
   }
-
 
   return country === null ? (
     <h1>Loading...</h1>
@@ -149,4 +154,4 @@ export const CountryDetail = () => {
       </div>
     </main>
   );
-}
+};

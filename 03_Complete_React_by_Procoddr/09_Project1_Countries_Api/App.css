@@ -147,7 +147,7 @@ a {
   color: var(--text-color);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 620px) {
   .countries-container {
     justify-content: center;
   }
@@ -161,6 +161,18 @@ a {
   }
 
   .search-filter-container {
+    max-width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
+
+  .search-filter-container {
     flex-direction: column;
   }
+
+  .filter-by-region {
+  max-width: 100%;
+}
 }

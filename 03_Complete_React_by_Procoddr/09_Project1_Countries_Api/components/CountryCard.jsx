@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import { Link } from "react-router-dom";
 
 export const CountryCard = ({
   name,
@@ -11,6 +10,7 @@ export const CountryCard = ({
   continent,
   subregion,
   data,
+  countryList
 }) => {
   return (
     <>
@@ -19,6 +19,7 @@ export const CountryCard = ({
         to={`/${name}`}
         state={{
           data,
+          countryList
         }}
       >
         <img src={flag} alt={name + "Flag"} />
