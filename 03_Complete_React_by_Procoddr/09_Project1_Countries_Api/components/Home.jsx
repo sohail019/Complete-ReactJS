@@ -4,6 +4,7 @@ import { FilterMenu } from "./FilterMenu";
 import { CountriesList } from "./CountriesList";
 import { useWindowSize } from "../hooks/useWindowSize";
 import { useTheme } from "../hooks/useTheme";
+import { ScrollToTop } from "./ScrollToTop";
 
 export const Home = () => {
   const [query, setQuery] = useState("");
@@ -21,6 +22,7 @@ export const Home = () => {
 
   return (
     <main className={`${isDark ? "dark" : ""}`}>
+      <ScrollToTop />
       {windowSize}
       <div className="search-filter-container">
         <Searchbar setQuery={setQuery} />
