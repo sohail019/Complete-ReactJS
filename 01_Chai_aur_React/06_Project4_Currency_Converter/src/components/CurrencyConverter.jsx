@@ -1,6 +1,7 @@
 import { useState } from "react";
 import InputBox from "./InputBox";
 import { useCurrencyInfo } from "../hooks/useCurrencyInfo";
+import { DateTime } from "./DateTime";
 
 export const CurrencyConverter = () => {
    const [amount, setAmount] = useState(0);
@@ -29,7 +30,7 @@ export const CurrencyConverter = () => {
      <>
        <div className="w-full h-screen flex flex-wrap justify-center items-center">
          <div className="w-full">
-           <h1 className="text-4xl text-white text-center mb-12 font-bold italic">
+           <h1 className="text-4xl text-white text-center mb-12 font-bold italic uppercase">
              Currency Converter
            </h1>
            <div className="w-full max-w-md mx-auto border border-gray-60 rounded-lg p-5 backdrop-blur-sm bg-white/30">
@@ -76,6 +77,7 @@ export const CurrencyConverter = () => {
                  Convert {from.toUpperCase()} to {to.toUpperCase()}
                </button>
              </form>
+           <DateTime />
            </div>
          </div>
        </div>
