@@ -36,7 +36,7 @@ export const Contact = () => {
                   />
                 </svg>
                 <div className="ml-4 text-md tracking-wide font-semibold w-40">
-                  Acme Inc, Street, State, Postal Code
+                  Mumbai, Maharastra
                 </div>
               </div>
 
@@ -58,7 +58,7 @@ export const Contact = () => {
                   />
                 </svg>
                 <div className="ml-4 text-md tracking-wide font-semibold w-40">
-                  +44 1234567890
+                  +91 9876543210
                 </div>
               </div>
 
@@ -80,7 +80,7 @@ export const Contact = () => {
                   />
                 </svg>
                 <div className="ml-4 text-md tracking-wide font-semibold w-40">
-                  info@acme.org
+                  info@sohail.com
                 </div>
               </div>
             </div>
