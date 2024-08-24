@@ -1,46 +1,33 @@
-//* Registration Form Using Multiple State Variables
-
 import { useState } from "react";
 
+//* Using Object State with Spread Operator
 //todo  Tasks:
+//? Refactor the registration form to use a single object (formData) as the initial state.
+//? Update input fields to use object properties.
+//? Use the spread operator to update the form data state efficiently.
+//? Discuss the benefits of using object state over multiple state variables.
 
-//? Set up a functional component in React.
-//? Create five separate state variables (firstName, lastName, email, password, phoneNumber).
-//? Create input fields for each piece of information.
-//? Implement onChange handlers to update state variables.
-//? Discuss the benefits and drawbacks of this approach.
+export const RealLifeRegistration = () => {
+    const [user, setUser] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
+        phoneNumber: ""
+    });
 
-export const RegistrationForm = () => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
+const {firstName, lastName, email, password, phoneNumber} =  user
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
-    switch (name) {
-      case "firstName":
-        setFirstName(value);
-        break;
-      case "lastName":
-        setLastName(value);
-        break;
-      case "email":
-        setEmail(value);
-        break;
-      case "password":
-        setPassword(value);
-        break;
-      case "phoneNumber":
-        setPhoneNumber(value);
-        break;
-    }
+    setUser((prev) => ({...prev, [name]: value}))
   };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+
+    // const {firstName, lastName, email,password, phoneNumber} = user
 
     const formData = {
       firstName,
@@ -118,6 +105,7 @@ export const RegistrationForm = () => {
               placeholder="Enter Password"
               name="password"
               required
+              minLength="8"
               value={password}
               onChange={handleInputChange}
             />
@@ -130,6 +118,7 @@ export const RegistrationForm = () => {
               type="phone"
               name="phoneNumber"
               placeholder="9876543211"
+              maxLength="10"
               required
               value={phoneNumber}
               onChange={handleInputChange}
