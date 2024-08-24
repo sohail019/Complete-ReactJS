@@ -1,0 +1,101 @@
+/* Basic styling */
+.header {
+  background-color: teal;
+  color: black;
+  padding: 16px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+  padding: 20px;
+  width: 500px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: white;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: teal;
+  cursor: pointer;
+}
+
+/* Menu button */
+.menu-button {
+  width: 25px;
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: black;
+  cursor: pointer;
+  position: absolute;
+  right:60px;
+  /* background: #000; */
+}
+
+/* Menu styling */
+.menu ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+}
+
+.menu ul li {
+  margin-left: 20px;
+  font-size: 1.7rem;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: black;
+  transition: color 0.3s ease;
+}
+
+.menu ul li a:hover {
+  color: teal;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .menu-button {
+    display: block;
+  }
+
+  .menu ul {
+    display: none;
+    flex-direction: column;
+    background-color: teal;
+    position: absolute;
+    top: 100px;
+    right: 0px;
+    min-width: 100%;
+    border-top: 1px solid black;
+    overflow: hidden;
+  }
+
+  .menu ul li {
+    margin: 0;
+    border-bottom: 1px solid white;
+    text-align: center;
+  }
+
+  .menu ul li a {
+    padding: 10px 15px;
+    color: white;
+    display: block;
+  }
+
+  .menu.open ul {
+    display: flex;
+  }
+}

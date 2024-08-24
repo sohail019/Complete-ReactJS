@@ -1,16 +1,14 @@
 import './App.css'
-import { ContactForm } from './components/ContactForm'
-import { LoginForm } from './components/LoginForm'
-import { RealLifeRegistration } from './components/RealLifeRegistration'
-import { RegistrationForm } from './components/RegistrationForm'
+import { Outlet } from 'react-router-dom'
+import { Header } from './components/Header'
 
 function App() {
 
   return (
-    // <RegistrationForm />
-    // <RealLifeRegistration />
-    // <LoginForm />
-    <ContactForm />
+    <>
+    <Header />
+    <Outlet />
+    </>
   )
   
 }

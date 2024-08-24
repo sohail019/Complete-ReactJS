@@ -28,6 +28,8 @@ export const ContactForm = () => {
     message: "",
   });
 
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+
   const { fullName, email, message } = contactData;
 
   const handleInputChange = (e) => {
@@ -52,20 +54,12 @@ export const ContactForm = () => {
       email: "",
       message: "",
     });
+
+    setIsFormSubmitted(true);
   };
 
   return (
     <main>
-      <section
-        className="summary"
-        style={{ textAlign: "center", marginTop: "30px" }}
-      >
-        {/* {isLoggedIn && (
-          <p>
-            Hello,<span>{username}</span>
-          </p>
-        )} */}
-      </section>
       <div className="container">
         <div className="card">
           <h1>Contact Form</h1>
@@ -105,6 +99,16 @@ export const ContactForm = () => {
           </form>
         </div>
       </div>
+      <section
+        className="summary"
+        style={{ textAlign: "center", marginTop: "30px" }}
+      >
+        {isFormSubmitted && (
+          <p>
+            <span>Your Form Is Submitted!</span>
+          </p>
+        )}
+      </section>
     </main>
   );
 };
