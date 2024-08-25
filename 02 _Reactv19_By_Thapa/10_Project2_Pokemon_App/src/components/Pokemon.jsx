@@ -64,8 +64,7 @@ export const Pokemon = () => {
   }
 
   //  todo: Search functionality
-  const searchPokemon = pokemon.filter((currPokemon) => currPokemon.name.toLowerCase()
-  .includes(search.toLowerCase())
+  const searchPokemon = pokemon.filter((currPokemon) => currPokemon.name.toLowerCase().includes(search.toLowerCase())
   )
 
   //todo: Render the fetched Pokémon data
