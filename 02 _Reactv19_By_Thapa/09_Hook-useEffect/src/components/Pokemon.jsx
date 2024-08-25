@@ -7,18 +7,32 @@ export const Pokemon = () => {
   const [error, setError] = useState("");
   const API = "https://pokeapi.co/api/v2/pokemon/pikachu";
 
-  const fetchPokemon = () => {
-    fetch(API)
-      .then((res) => res.json())
-      .then((data) => {
-        setPokemon(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Error: ", err);
-        setError(err)
-        setLoading(false);
-      });
+  //   const fetchPokemon = () => {
+  //     fetch(API)
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         setPokemon(data);
+  //         setLoading(false);
+  //       })
+  //       .catch((err) => {
+  //         console.error("Error: ", err);
+  //         setError(err)
+  //         setLoading(false);
+  //       });
+  //   };
+
+  //* new approach is try/catch
+  const fetchPokemon = async () => {
+    try {
+        const res = await fetch(API)
+        const data = await res.json()
+        setPokemon(data)
+        setLoading(false)
+    } catch (error) {
+      console.error("Error: ", err);
+      setError(err);
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -29,8 +43,8 @@ export const Pokemon = () => {
     return <h1>Loading...</h1>;
   }
 
-  if(error) {
-    return <h1>Error: {error.message}</h1>
+  if (error) {
+    return <h1>Error: {error.message}</h1>;
   }
 
   //   if(pokemon) {
