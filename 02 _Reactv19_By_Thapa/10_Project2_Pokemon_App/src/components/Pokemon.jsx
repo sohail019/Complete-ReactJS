@@ -11,6 +11,9 @@ export const Pokemon = () => {
   //? state to handle errors if the fetch process fails
   const [error, setError] = useState("");
 
+  //? state to search pokemon
+  const [search, setSearch] = useState("");
+
   //* API
   const API = "https://pokeapi.co/api/v2/pokemon?limit=124";
 
@@ -48,13 +51,22 @@ export const Pokemon = () => {
 
   //todo: If the loading state is true, display a loading message
   if (loading) {
-    return <h1>Loading.......</h1>;
+    return (
+      <header>
+        <h1> Pokémon is Loading.....</h1>
+      </header>
+    );
   }
 
   //todo: If there is an error, display the error message
   if (error) {
     return <h1>{error.message}</h1>;
   }
+
+  //  todo: Search functionality
+  const searchPokemon = pokemon.filter((currPokemon) => currPokemon.name.toLowerCase()
+  .includes(search.toLowerCase())
+  )
 
   //todo: Render the fetched Pokémon data
   return (
@@ -64,18 +76,23 @@ export const Pokemon = () => {
           <h1> Lets Catch Pokémon</h1>
         </header>
         <div className="pokemon-search">
-          <input type="text" placeholder="search Pokemon" />
+          <input
+            type="text"
+            placeholder="search Pokémon"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
         </div>
         <div>
           <ul className="cards">
             {/* {pokemon.map((currPokemon) => {
               return <li key={currPokemon.id}>{currPokemon.id}</li>;
             })} */}
-            {
-                pokemon.map((currPokemon) => {
-                    return <PokemonCard key={currPokemon.id} pokemonData={currPokemon}/>
-                })
-            }
+            {searchPokemon.map((currPokemon) => {
+              return (
+                <PokemonCard key={currPokemon.id} pokemonData={currPokemon} />
+              );
+            })}
           </ul>
         </div>
       </section>
