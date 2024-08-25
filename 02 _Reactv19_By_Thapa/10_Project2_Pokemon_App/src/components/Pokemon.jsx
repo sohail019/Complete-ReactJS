@@ -1,7 +1,16 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { PokemonCard } from "./PokemonCard";
 
 export const Pokemon = () => {
+  //? state to store the detailed pokemon data
+  const [pokemon, setPokemon] = useState([]);
+
+  //? state to handle the loading status
+  const [loading, setLoading] = useState(true);
+
+  //? state to handle errors if the fetch process fails
+  const [error, setError] = useState("");
+
   //* API
   const API = "https://pokeapi.co/api/v2/pokemon?limit=124";
 
@@ -22,10 +31,13 @@ export const Pokemon = () => {
 
       //? Use Promise.all to wait for all the detailed pokemon data to be fetched
       const detailedResponses = await Promise.all(detailedPokemonData);
-      console.log(detailedResponses);
+      setPokemon(detailedResponses); //? store the detailed Pokemon data in state
+      setLoading(false); //? Set loading status to false once data is fetched
     } catch (error) {
       //! Catch and log any error that occur during the fetch process
       console.error("Error:", error);
+      setLoading(false); //! Set loading to false if an error occurs
+      setError(error); //! Set the error state to display an error message
     }
   };
 
@@ -34,6 +46,17 @@ export const Pokemon = () => {
     fetchPokemon(); //? Call the fetch function to get Pokemon data when the component loads
   }, []); //? Empty dependency array ensures this only runs once on mount
 
+  //todo: If the loading state is true, display a loading message
+  if (loading) {
+    return <h1>Loading.......</h1>;
+  }
+
+  //todo: If there is an error, display the error message
+  if (error) {
+    return <h1>{error.message}</h1>;
+  }
+
+  //todo: Render the fetched Pokémon data
   return (
     <>
       <section className="container">
@@ -45,7 +68,9 @@ export const Pokemon = () => {
         </div>
         <div>
           <ul className="cards">
-            <PokemonCard />
+            {pokemon.map((currPokemon) => {
+              return <li key={currPokemon.id}>{currPokemon.id}</li>;
+            })}
           </ul>
         </div>
       </section>
