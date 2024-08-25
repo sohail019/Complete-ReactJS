@@ -68,9 +68,14 @@ export const Pokemon = () => {
         </div>
         <div>
           <ul className="cards">
-            {pokemon.map((currPokemon) => {
+            {/* {pokemon.map((currPokemon) => {
               return <li key={currPokemon.id}>{currPokemon.id}</li>;
-            })}
+            })} */}
+            {
+                pokemon.map((currPokemon) => {
+                    return <PokemonCard key={currPokemon.id} pokemonData={currPokemon}/>
+                })
+            }
           </ul>
         </div>
       </section>

@@ -1,26 +1,28 @@
-export const PokemonCard = () => {
+export const PokemonCard = ({ pokemonData }) => {
+  //todo: Destructuring properties from the pokemonData object
+  const { name, height, weight, base_experience } = pokemonData;
   return (
     <li className="pokemon-card">
       <figure>
         <img
-          src=""
-          alt=""
+          src={pokemonData.sprites.other.dream_world.front_default}
+          alt={name}
           className="pokemon-image"
         />
       </figure>
-      <h1 className="pokemon-name">Pikachu</h1>
+      <h1 className="pokemon-name">{name}</h1>
       <div className="pokemon-info pokemon-highlight">
         <p>
-          Type
+          {pokemonData.types.map((currType) => currType.type.name).join(" | ")}
         </p>
       </div>
 
       <div className="grid-three-cols">
         <p className="pokemon-info">
-          <span> Height:</span> 98
+          <span> Height:</span> {height}
         </p>
         <p className="pokemon-info">
-          <span> Weight:</span> 56
+          <span> Weight:</span> {weight}
         </p>
         <p className="pokemon-info">
           <span> speed:</span> 101
@@ -29,16 +31,19 @@ export const PokemonCard = () => {
 
       <div className="grid-three-cols">
         <div className="pokemon-info">
-          <p>45</p>
+          <p>{base_experience}</p>
           <span> Experience:</span>
         </div>
         <div className="pokemon-info">
-          <p>45</p>
+          <p>{pokemonData.stats[1].base_stat}</p>
           <span>Attack:</span>
         </div>
         <div className="pokemon-info">
           <p>
-            Ability
+            {pokemonData.abilities
+              .map((abilityInfo) => abilityInfo.ability.name)
+              .slice(0, 1)
+              .join(", ")}
           </p>
           <span> Abilities: </span>
         </div>
