@@ -12,7 +12,7 @@ html {
 body {
   width: 100%;
   background-color: #00182f; /* Use the desired background color */
-  color: white; /* Use the desired text color */
+  color: black; /* Use the desired text color */
   font-family: "Lato", sans-serif; /* Use the desired font family */
 }
 
@@ -26,7 +26,7 @@ h6 {
 }
 
 h1 {
-  font-size: 5.4rem;
+  /* font-size: 5.4rem; */
   font-weight: bold;
   text-align: center;
 }
