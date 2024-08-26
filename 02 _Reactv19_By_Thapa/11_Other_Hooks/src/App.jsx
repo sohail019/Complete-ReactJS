@@ -1,9 +1,11 @@
 import "./App.css";
 import { ForwardRef } from "./components/ForwardRef";
 import { ParentComponent } from "./components/PropDrilling";
+import { ThemeSwitcher } from "./components/ThemeSwitcher";
 import { About } from "./contexts/About";
 import { BioProvider } from "./contexts/Context";
 import { Home } from "./contexts/Home";
+import { ThemeProvider } from "./contexts/ThemeContext";
 import { UseId } from "./hooks/UseId";
 import { UseRef } from "./hooks/UseRef";
 
@@ -17,10 +19,15 @@ function App() {
 
       {/* //* Context API */}
 
-      <BioProvider>
+      {/* <BioProvider>
         <Home />
         <About />
-      </BioProvider>
+      </BioProvider> */}
+
+      {/* //* Theme Switcher */}
+      <ThemeProvider >
+        <ThemeSwitcher />
+      </ThemeProvider>
     </>
   );
 }
