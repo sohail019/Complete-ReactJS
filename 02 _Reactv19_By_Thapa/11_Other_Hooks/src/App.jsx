@@ -6,6 +6,7 @@ import { BioProvider } from "./contexts/Context";
 import { Home } from "./contexts/Home";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { UseId } from "./hooks/UseId";
+import { UseReducer } from "./hooks/UseReducer";
 import { UseRef } from "./hooks/UseRef";
 
 function App() {
@@ -24,9 +25,11 @@ function App() {
       </BioProvider> */}
 
       {/* //* Theme Switcher */}
-      <ThemeProvider >
+      {/* <ThemeProvider >
         <ThemeSwitcher />
-      </ThemeProvider>
+      </ThemeProvider> */}
+
+      <UseReducer />
     </>
   );
 }
