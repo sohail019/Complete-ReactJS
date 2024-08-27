@@ -1,8 +1,20 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import  Counts  from "./MemoCount";
 
 export const ReactMemo = () => {
   const [count, setCount] = useState(0);
+
+  // const myData = {
+  //   name: "Sohail",
+  //   age: 20
+  // }
+
+  const myData = useMemo(() => {
+    return {
+      name: "Sohail",
+      age: 20,
+    };
+  }, [])
 
   return (
     <>
@@ -15,7 +27,7 @@ export const ReactMemo = () => {
           Increment
         </button>
       </div>
-      <Counts/>
+      <Counts data={myData}/>
     </>
   );
 };

@@ -34,8 +34,8 @@ function App() {
       {/* <UseReducer /> */}
 
       {/* //* Memoization */}
-      {/* <ReactMemo /> */}
-      <UseMemo />
+      <ReactMemo />
+      {/* <UseMemo /> */}
     </>
   );
 }
