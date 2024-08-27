@@ -6,6 +6,7 @@ import { BioProvider } from "./contexts/Context";
 import { Home } from "./contexts/Home";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { ReactMemo } from "./hooks/Memo/ReactMemo";
+import { UseCallback } from "./hooks/Memo/UseCallback";
 import UseMemo from "./hooks/Memo/UseMemo";
 import { UseId } from "./hooks/UseId";
 import { UseReducer } from "./hooks/UseReducer";
@@ -34,8 +35,9 @@ function App() {
       {/* <UseReducer /> */}
 
       {/* //* Memoization */}
-      <ReactMemo />
+      {/* <ReactMemo /> */}
       {/* <UseMemo /> */}
+      <UseCallback />
     </>
   );
 }
