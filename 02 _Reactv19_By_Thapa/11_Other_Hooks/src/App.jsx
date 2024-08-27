@@ -1,4 +1,3 @@
-import "./App.css";
 import { ForwardRef } from "./components/ForwardRef";
 import { ParentComponent } from "./components/PropDrilling";
 import { ThemeSwitcher } from "./components/ThemeSwitcher";
