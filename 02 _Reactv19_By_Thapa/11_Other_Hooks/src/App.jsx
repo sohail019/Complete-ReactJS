@@ -5,6 +5,7 @@ import { About } from "./contexts/About";
 import { BioProvider } from "./contexts/Context";
 import { Home } from "./contexts/Home";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { ReactMemo } from "./hooks/Memo/ReactMemo";
 import { UseId } from "./hooks/UseId";
 import { UseReducer } from "./hooks/UseReducer";
 import { UseRef } from "./hooks/UseRef";
@@ -29,7 +30,8 @@ function App() {
         <ThemeSwitcher />
       </ThemeProvider> */}
 
-      <UseReducer />
+      {/* <UseReducer /> */}
+      <ReactMemo />
     </>
   );
 }
