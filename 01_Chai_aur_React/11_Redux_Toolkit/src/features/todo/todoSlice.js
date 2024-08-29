@@ -3,10 +3,10 @@ import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 //* Define the initial state for the Todo Slice
 const initialState = {
-    todos: {
+    todos: [{
         id: 1,
         text: "Hello"
-    }
+    }]
 }
 
 //* Create a slice for the todos, which includes the initial state, reducers and actions
