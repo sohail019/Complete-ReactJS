@@ -19,7 +19,7 @@ export const Header = ({getActiveColor}) => {
 
         <div className="container">
           <div className="navbar-brand">
-            <NavLink to="index">
+            <NavLink to="/">
               <p>SohailFlix</p>
             </NavLink>
           </div>

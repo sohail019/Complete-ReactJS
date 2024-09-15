@@ -6,12 +6,14 @@ import { Contact } from './pages/Contact'
 import {Home} from "./pages/Home"
 import { Movies } from './pages/Movies'
 import "./App.css"
+import { Error } from './pages/Error'
 
 export const App = () => {
 
   const router = createBrowserRouter([
     {
       path: "/",
+      errorElement: <Error />,
       element: <AppLayout />,
       children: [
         {
